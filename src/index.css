@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+:root {
+  font-family: "Nunito Sans Variable", sans-serif;
+  font-size: 62.5%;
+
+  /* Colors */
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+
+  /* Light Mode */
+  --light-mode-text: hsl(200, 15%, 8%);
+  --light-mode-input: hsl(0, 0%, 52%);
+  --light-mode-background: hsl(0, 0%, 98%);
+
+  /* Dark Mode */
+  --dark-mode-elements: hsl(209, 23%, 22%);
+  --dark-mode-background: hsl(207, 26%, 17%);
+}
+
+body {
+  font-size: 1.4rem;
+}
