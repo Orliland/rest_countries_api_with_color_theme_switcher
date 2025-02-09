@@ -2,6 +2,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+html {
+  @apply dark:bg-dark-background;
+}
+
 @theme {
   --font-display: "Nunito Sans Variable", sans-serif;
 
