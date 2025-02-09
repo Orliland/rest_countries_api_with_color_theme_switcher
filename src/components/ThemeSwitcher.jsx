@@ -28,7 +28,7 @@ const ThemeSwitcher = () => {
   return (
     <button className="flex items-center gap-2" onClick={toggleTheme}>
       {isDarkMode ? <IoMoon /> : <IoMoonOutline />}
-      <span className="text-xs font-[500] ">Dark Mode</span>
+      <span className="text-xs font-[500]">Dark Mode</span>
     </button>
   );
 };
