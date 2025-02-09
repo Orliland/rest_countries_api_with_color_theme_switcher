@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
-:root {
-  font-family: "Nunito Sans Variable", sans-serif;
-  font-size: 62.5%;
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  @apply dark:bg-dark-background;
+}
+
+@theme {
+  --font-display: "Nunito Sans Variable", sans-serif;
 
   /* Colors */
   --color-white: hsl(0, 0%, 100%);
@@ -16,8 +21,7 @@
   /* Dark Mode */
   --color-dark-elements: hsl(209, 23%, 22%);
   --color-dark-background: hsl(207, 26%, 17%);
-}
 
-body {
-  font-size: 1.4rem;
+  /* Box Shadows */
+  --shadow-light: 0px 2px 4px 0px rgba(0, 0, 0, 0.0562);
 }
