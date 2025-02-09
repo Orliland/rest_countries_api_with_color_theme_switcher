@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 html {
-  @apply dark:bg-dark-background;
   @apply bg-light-background;
+  @apply dark:bg-dark-background;
 }
 
 @theme {
