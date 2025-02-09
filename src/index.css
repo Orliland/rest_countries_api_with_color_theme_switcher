@@ -4,6 +4,7 @@
 
 html {
   @apply dark:bg-dark-background;
+  @apply bg-light-background;
 }
 
 @theme {
@@ -24,4 +25,5 @@ html {
 
   /* Box Shadows */
   --shadow-light: 0px 2px 4px 0px rgba(0, 0, 0, 0.0562);
+  --shadow-input: 0px 2px 9px 0px rgba(0, 0, 0, 0.0532);
 }
