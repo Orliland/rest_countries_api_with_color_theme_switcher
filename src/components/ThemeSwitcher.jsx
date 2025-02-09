@@ -26,9 +26,16 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <button className="flex items-center gap-2" onClick={toggleTheme}>
-      {isDarkMode ? <IoMoon /> : <IoMoonOutline />}
-      <span className="text-xs font-[500]">Dark Mode</span>
+    <button
+      className="flex items-center gap-2 hover:cursor-pointer hover:text-gray-500"
+      onClick={toggleTheme}
+    >
+      {isDarkMode ? (
+        <IoMoon className="h-4 w-4 md:h-5 md:w-5" />
+      ) : (
+        <IoMoonOutline className="h-4 w-4 md:h-5 md:w-5" />
+      )}
+      <span className="text-xs font-[500] md:text-base">Dark Mode</span>
     </button>
   );
 };
