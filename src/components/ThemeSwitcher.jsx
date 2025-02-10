@@ -1,7 +1,7 @@
 import { IoMoonOutline, IoMoon } from "react-icons/io5";
 import { useState, useEffect } from "react";
 
-// TODO: add desktop styles, dark styles
+// TODO: read user preference scheme color
 
 const ThemeSwitcher = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
