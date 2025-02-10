@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
+import FlagsGrid from "./FlagsGrid";
 
 const FlagsHome = () => {
   const [search, setSearch] = useState("");
@@ -13,6 +14,7 @@ const FlagsHome = () => {
         <SearchBar setSearch={setSearch} search={search} />
         <Filter setFilter={setFilter} filter={filter} />
       </section>
+      <FlagsGrid search={search} filter={filter} />
     </div>
   );
 };
