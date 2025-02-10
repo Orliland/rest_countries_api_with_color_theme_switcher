@@ -12,6 +12,10 @@ const FlagsGrid = ({ search, filter }) => {
     return country.region === changeAmerica;
   });
 
+  const applySearch = filteredData.filter((country) => {
+    return country.name.common.toLowerCase().includes(search.toLowerCase());
+  });
+
   return (
     <section className="px-10 md:px-0">
       {isLoading && (
@@ -26,7 +30,7 @@ const FlagsGrid = ({ search, filter }) => {
       )}
       {data && (
         <div className="grid grid-cols-1 gap-[40px] md:grid-cols-3 lg:grid-cols-4 lg:gap-[75px]">
-          {filteredData.map((country) => (
+          {applySearch.map((country) => (
             <FlagCard key={country.name.common} country={country} />
           ))}
         </div>
