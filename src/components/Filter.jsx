@@ -1,26 +1,73 @@
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdClose } from "react-icons/md";
+import { useState } from "react";
 
-const FilterOption = ({ name }) => {
+const FilterOption = ({ name, onClick }) => {
   return (
     <li className="leading-0">
-      <button className="text-xs dark:text-white">{name}</button>
+      <button
+        onClick={onClick}
+        className="text-xs leading-5 hover:cursor-pointer hover:text-gray-400 md:text-sm dark:text-white"
+      >
+        {name}
+      </button>
     </li>
   );
 };
 
 const Filter = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    setIsOpen(false);
+  };
+
   return (
-    <div className="shadow-input dark:bg-dark-elements relative w-[200px] rounded-[5px] bg-white py-3.5 pr-[18px] pl-6">
-      <div className="flex items-center justify-between leading-5">
-        <span className="text-xs dark:text-white">Filter by Region</span>
-        <MdKeyboardArrowDown className="text-dark-elements h-2.5 w-2.5 dark:text-white" />
+    <div className={`shadow-input dark:bg-dark-elements relative w-[200px]`}>
+      <div
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+        className={`flex items-center justify-between rounded-[5px] bg-white py-3.5 pr-[18px] pl-6 hover:cursor-pointer hover:text-gray-400 md:py-[18px] md:pr-[22px] md:pl-6 dark:text-white ${isOpen ? "outline-light-input outline-[1px] dark:outline-white" : ""}`}
+      >
+        <span className="text-xs leading-5 md:text-sm">
+          {selectedOption || "Filter by Region"}
+        </span>
+        {selectedOption === null ? (
+          <MdKeyboardArrowDown className="h-2.5 w-2.5 md:h-3 md:w-3" />
+        ) : (
+          <MdClose
+            className="h-2.5 w-2.5 md:h-3 md:w-3"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedOption(null);
+            }}
+          />
+        )}
       </div>
-      <ul className="dark:bg-dark-elements shadow-input absolute top-[calc(100%+4px)] left-0 flex w-full flex-col gap-2 rounded-[5px] bg-white px-6 py-4">
-        <FilterOption name="Africa" />
-        <FilterOption name="America" />
-        <FilterOption name="Asia" />
-        <FilterOption name="Europe" />
-        <FilterOption name="Oceania" />
+      <ul
+        className={`dark:bg-dark-elements shadow-input absolute top-[calc(100%+4px)] left-0 w-full flex-col gap-2 rounded-[5px] bg-white px-6 py-4 ${
+          isOpen ? "flex" : "hidden"
+        }`}
+      >
+        <FilterOption
+          name="Africa"
+          onClick={() => handleOptionClick("Africa")}
+        />
+        <FilterOption
+          name="America"
+          onClick={() => handleOptionClick("America")}
+        />
+        <FilterOption name="Asia" onClick={() => handleOptionClick("Asia")} />
+        <FilterOption
+          name="Europe"
+          onClick={() => handleOptionClick("Europe")}
+        />
+        <FilterOption
+          name="Oceania"
+          onClick={() => handleOptionClick("Oceania")}
+        />
       </ul>
     </div>
   );
