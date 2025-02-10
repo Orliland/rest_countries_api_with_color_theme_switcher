@@ -6,7 +6,7 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <main className="mx-auto max-w-[1440px] px-4 md:px-20">
+      <main className="mx-auto max-w-[1440px] px-4 pb-[65px] md:px-20 md:pb-[45px]">
         <FlagsHome />
       </main>
     </div>

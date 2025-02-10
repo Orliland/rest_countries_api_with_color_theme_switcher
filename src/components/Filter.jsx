@@ -33,14 +33,14 @@ const Filter = ({ setFilter, filter }) => {
         <span className="text-xs leading-5 md:text-sm">
           {filter || "Filter by Region"}
         </span>
-        {filter === null ? (
+        {filter === false ? (
           <MdKeyboardArrowDown className="h-2.5 w-2.5 md:h-3 md:w-3" />
         ) : (
           <MdClose
             className="h-2.5 w-2.5 md:h-3 md:w-3"
             onClick={(e) => {
               e.stopPropagation();
-              setFilter(null);
+              setFilter(false);
             }}
           />
         )}
@@ -57,6 +57,10 @@ const Filter = ({ setFilter, filter }) => {
         <FilterOption
           name="America"
           onClick={() => handleOptionClick("America")}
+        />
+        <FilterOption
+          name="Antarctic"
+          onClick={() => handleOptionClick("Antarctic")}
         />
         <FilterOption name="Asia" onClick={() => handleOptionClick("Asia")} />
         <FilterOption

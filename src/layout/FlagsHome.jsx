@@ -6,7 +6,7 @@ import FlagsGrid from "./FlagsGrid";
 
 const FlagsHome = () => {
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState(null);
+  const [filter, setFilter] = useState(false);
 
   return (
     <div>
