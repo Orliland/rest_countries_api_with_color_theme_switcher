@@ -44,14 +44,19 @@ const CountryInfo = ({ country }) => {
           <InfoItem label="Currencies" value={country.currencies} />
           <InfoItem label="Languages" value={country.languages} />
         </ul>
-        <h3 className="mb-4 text-base leading-6 font-[500]">
-          Border Countries
-        </h3>
-        <div className="flex flex-wrap gap-2.5">
-          {country.borders.map((border) => (
-            <CountryButton key={border} countryCode={border} />
-          ))}
-        </div>
+
+        {country.hasOwnProperty("border") && (
+          <>
+            <h3 className="mb-4 text-base leading-6 font-[500]">
+              Border Countries
+            </h3>
+            <div className="flex flex-wrap gap-2.5">
+              {country.borders.map((border) => (
+                <CountryButton key={border} countryCode={border} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
