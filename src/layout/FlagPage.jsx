@@ -12,9 +12,12 @@ const FlagPage = () => {
 
   return (
     <section className="pt-10 md:pt-20">
-      <LinkButton to="/">
+      <LinkButton
+        to="/"
+        customTextPadding="text-sm leading-5 md:text-[16px] py-1.5 px-6 md:py-2.5 md:px-9"
+      >
         <BsArrowLeft className="h-[18px] w-[18px]" />
-        <span className="text-sm leading-5 md:text-[16px]">Back</span>
+        <span>Back</span>
       </LinkButton>
       {isLoading && (
         <p className="text-dark-text text-center text-2xl dark:text-white">

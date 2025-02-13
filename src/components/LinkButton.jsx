@@ -1,10 +1,9 @@
 import { Link } from "react-router";
-
-const LinkButton = ({ to, children }) => {
+const LinkButton = ({ to, children, customTextPadding }) => {
   return (
     <Link
       to={to}
-      className="dark:bg-dark-elements md:bg-light-background shadow-back dark:hover:bg-dark-elements/50 flex w-fit items-center gap-2 rounded-[2px] bg-white px-6 py-1.5 font-[200] hover:cursor-pointer hover:bg-white/5 hover:font-[400] md:px-8 md:py-2.5 dark:text-white"
+      className={`shadow-back md:bg-light-background dark:bg-dark-elements dark:hover:bg-dark-elements/50 flex w-fit items-center justify-center gap-2 rounded-[2px] bg-white font-[200] hover:cursor-pointer hover:bg-white/5 hover:font-[400] dark:text-white ${customTextPadding}`}
     >
       {children}
     </Link>

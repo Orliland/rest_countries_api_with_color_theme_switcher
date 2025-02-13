@@ -7,10 +7,11 @@ const CountryButton = ({ countryCode }) => {
   return (
     <>
       {data && (
-        <LinkButton to={`/country/${data[0].name.common}`}>
-          <span className="mx-1.5 text-[12px] md:text-[14px]">
-            {data[0].name.common}
-          </span>
+        <LinkButton
+          to={`/country/${data[0].name.common}`}
+          customTextPadding="text-[12px] md:text-[14px] py-1.5 md:py-1 px-2 min-w-[96px]"
+        >
+          {data[0].name.common}
         </LinkButton>
       )}
     </>
