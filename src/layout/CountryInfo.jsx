@@ -17,9 +17,10 @@ const InfoItem = ({ label, value }) => {
 import CountryButton from "../components/CountryButton";
 
 const CountryInfo = ({ country }) => {
+  let lastNativeName;
   if (country.name.nativeName) {
     const nativeNamesValues = Object.values(country.name.nativeName);
-    const lastNativeName = nativeNamesValues[nativeNamesValues.length - 1];
+    lastNativeName = nativeNamesValues[nativeNamesValues.length - 1];
   }
 
   return (
