@@ -8,7 +8,7 @@ export function useFetch(name = null) {
   let URL;
   if (name) {
     if (name.length > 3) {
-      URL = `https://restcountries.com/v3.1/name/${name}`;
+      URL = `https://restcountries.com/v3.1/name/${name}?fullText=true`;
     } else {
       URL = `https://restcountries.com/v3.1/alpha/${name}`;
     }
