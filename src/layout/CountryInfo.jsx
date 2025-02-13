@@ -17,8 +17,10 @@ const InfoItem = ({ label, value }) => {
 import CountryButton from "../components/CountryButton";
 
 const CountryInfo = ({ country }) => {
-  const nativeNamesValues = Object.values(country.name.nativeName);
-  const lastNativeName = nativeNamesValues[nativeNamesValues.length - 1];
+  if (country.name.nativeName) {
+    const nativeNamesValues = Object.values(country.name.nativeName);
+    const lastNativeName = nativeNamesValues[nativeNamesValues.length - 1];
+  }
 
   return (
     <div className="mt-16 flex flex-col items-start gap-11 md:mt-20 md:flex-row md:gap-20 lg:gap-36">
@@ -33,19 +35,35 @@ const CountryInfo = ({ country }) => {
         </h2>
         <div className="mt-4 mb-[34px] flex flex-col gap-8 md:flex-row md:justify-between">
           <ul>
-            <InfoItem label="Native Name" value={lastNativeName.common} />
-            <InfoItem
-              label="Population"
-              value={country.population.toLocaleString()}
-            />
-            <InfoItem label="Region" value={country.region} />
-            <InfoItem label="Sub Region" value={country.subregion} />
-            <InfoItem label="Capital" value={country.capital} />
+            {country.name.nativeName && (
+              <InfoItem label="Native Name" value={lastNativeName.common} />
+            )}
+            {country.population && (
+              <InfoItem
+                label="Population"
+                value={country.population.toLocaleString()}
+              />
+            )}
+            {country.region && (
+              <InfoItem label="Region" value={country.region} />
+            )}
+            {country.subregion && (
+              <InfoItem label="Sub Region" value={country.subregion} />
+            )}
+            {country.capital && (
+              <InfoItem label="Capital" value={country.capital} />
+            )}
           </ul>
           <ul>
-            <InfoItem label="Top Level Domain" value={country.tld} />
-            <InfoItem label="Currencies" value={country.currencies} />
-            <InfoItem label="Languages" value={country.languages} />
+            {country.tld && (
+              <InfoItem label="Top Level Domain" value={country.tld} />
+            )}
+            {country.currencies && (
+              <InfoItem label="Currencies" value={country.currencies} />
+            )}
+            {country.languages && (
+              <InfoItem label="Languages" value={country.languages} />
+            )}
           </ul>
         </div>
 
