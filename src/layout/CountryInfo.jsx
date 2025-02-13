@@ -7,7 +7,7 @@ const InfoItem = ({ label, value }) => {
   }
 
   return (
-    <li className="text-sm leading-8 font-[200] dark:text-white">
+    <li className="text-sm leading-8 font-[200] md:text-base dark:text-white">
       <strong className="font-[500]">{label}: </strong>
       {value}
     </li>
@@ -21,33 +21,37 @@ const CountryInfo = ({ country }) => {
   const lastNativeName = nativeNamesValues[nativeNamesValues.length - 1];
 
   return (
-    <div className="mt-16 flex flex-col gap-11">
+    <div className="mt-16 flex flex-col items-start gap-11 md:mt-20 md:flex-row md:gap-20 lg:gap-36">
       <img
         src={country.flags.png}
         alt={country.name.common}
-        className="aspect-[32/23] w-full rounded-[5px] object-cover"
+        className="aspect-[32/23] w-full rounded-[5px] object-cover md:aspect-[7/5] md:max-w-[560px]"
       />
       <div>
-        <h2 className="text-2xl font-[700]">{country.name.common}</h2>
-        <ul className="mt-4 mb-8">
-          <InfoItem label="Native Name" value={lastNativeName.common} />
-          <InfoItem
-            label="Population"
-            value={country.population.toLocaleString()}
-          />
-          <InfoItem label="Region" value={country.region} />
-          <InfoItem label="Sub Region" value={country.subregion} />
-          <InfoItem label="Capital" value={country.capital} />
-        </ul>
-        <ul className="mb-[34px]">
-          <InfoItem label="Top Level Domain" value={country.tld} />
-          <InfoItem label="Currencies" value={country.currencies} />
-          <InfoItem label="Languages" value={country.languages} />
-        </ul>
+        <h2 className="text-2xl font-[700] md:text-[32px] dark:text-white">
+          {country.name.common}
+        </h2>
+        <div className="mt-4 mb-[34px] flex flex-col gap-8 md:flex-row md:justify-between">
+          <ul>
+            <InfoItem label="Native Name" value={lastNativeName.common} />
+            <InfoItem
+              label="Population"
+              value={country.population.toLocaleString()}
+            />
+            <InfoItem label="Region" value={country.region} />
+            <InfoItem label="Sub Region" value={country.subregion} />
+            <InfoItem label="Capital" value={country.capital} />
+          </ul>
+          <ul>
+            <InfoItem label="Top Level Domain" value={country.tld} />
+            <InfoItem label="Currencies" value={country.currencies} />
+            <InfoItem label="Languages" value={country.languages} />
+          </ul>
+        </div>
 
-        {country.hasOwnProperty("border") && (
-          <>
-            <h3 className="mb-4 text-base leading-6 font-[500]">
+        {country.hasOwnProperty("borders") && (
+          <div className="flex flex-col gap-4 md:flex-row md:text-nowrap">
+            <h3 className="text-base leading-6 font-[500] dark:text-white">
               Border Countries
             </h3>
             <div className="flex flex-wrap gap-2.5">
@@ -55,7 +59,7 @@ const CountryInfo = ({ country }) => {
                 <CountryButton key={border} countryCode={border} />
               ))}
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

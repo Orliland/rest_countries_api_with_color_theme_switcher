@@ -8,7 +8,9 @@ const CountryButton = ({ countryCode }) => {
     <>
       {data && (
         <LinkButton to={`/country/${data[0].name.common}`}>
-          <span className="mx-1.5 text-[12px]">{data[0].name.common}</span>
+          <span className="mx-1.5 text-[12px] md:text-[14px]">
+            {data[0].name.common}
+          </span>
         </LinkButton>
       )}
     </>

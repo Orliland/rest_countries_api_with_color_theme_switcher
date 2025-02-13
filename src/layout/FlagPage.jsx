@@ -11,7 +11,7 @@ const FlagPage = () => {
   const { data, isLoading, error } = useFetch(name);
 
   return (
-    <section className="pt-10">
+    <section className="pt-10 md:pt-20">
       <LinkButton to="/">
         <BsArrowLeft className="h-[18px] w-[18px]" />
         <span className="text-sm leading-5 md:text-[16px]">Back</span>
