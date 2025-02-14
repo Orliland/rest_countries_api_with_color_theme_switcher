@@ -10,7 +10,7 @@ const FlagsHome = () => {
 
   return (
     <div>
-      <section className="flex flex-col gap-y-10 pt-6 pb-8 md:flex-row md:justify-between">
+      <section className="flex flex-col gap-y-10 pt-6 pb-8 md:flex-row md:justify-between md:py-12">
         <SearchBar setSearch={setSearch} search={search} />
         <Filter setFilter={setFilter} filter={filter} />
       </section>
